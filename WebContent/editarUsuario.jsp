@@ -10,6 +10,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+
+<%
+    Usuario user = new Usuario();
+    user.setId(Integer.parseInt(request.getParameter("id")));
+    UsuarioController usuario = new UsuarioController();
+    user = usuario.localizar(user);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -49,10 +56,43 @@
             </div>
         </div>
     <body>
-        <h1>
-			<%
-				out.println(request.getAttribute("id"));
-			%>
-		</h1>
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div>
+                    <h1 class ="text-center">Editar Usuário</h1>
+                    </div>
+                    <form class = "form-horizontal" role = "form" id="editUsuario" name="editUsuario" action="EditarUsuario">
+                        <div class="form-group col-md-12">
+                            <div class="jumbotron">
+                                <label for="Nome" class="control-label">Nome</label>
+                                <input class = "form-control"  type="text" name="Nome" value="<%out.println(user.getNome());%>" size="20"/>
+                                <label for="cpf" class="control-label">CPF</label>
+                                <input class = "form-control"  type="text" name="cpf" value="<%out.println(user.getCpf());%>" size="11"/>
+                                <label for="idade" class="control-label">Idade</label>
+                                <input class = "form-control"  type="text" name="idade" value="<%out.println(user.getIdade());%>" size="20"/>
+                                <input class = "form-control"  type="hidden" name="pontos" value="<%out.println(user.getPontos());%>" size="20"/>
+                                <input class = "form-control"  type="hidden" name="id" value="<%out.println(user.getId());%>" size="20"/>
+                                <input class = "form-control"  type="hidden" name="senha" value="<%out.println(user.getSenha());%>" size="20"/>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2">
+                                    <button type="submit" value="Enviar" name="Salvar"
+                                            class="btn btn-primary">Salvar</button>
+                                    <button type="reset" class="btn btn-danger">Voltar</button>
+                                </div>
+                            </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%
+            //out.println(request.getParameter("id"));
+        %>
+
     </body>
 </html>

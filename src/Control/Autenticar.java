@@ -33,7 +33,7 @@ public class Autenticar extends HttpServlet {
 						
 			UsuarioController usuarioController = new UsuarioController();
 			
-			if(usuarioController.localizar(usuario)!= null){
+			if(usuarioController.autenticar(usuario)!= null){
 				request.getSession().setAttribute("login", usuario.getNome());
 				request.getRequestDispatcher("principal.jsp").forward(request, response);
 			}
