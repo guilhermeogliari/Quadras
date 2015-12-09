@@ -24,7 +24,6 @@ public class Autenticar extends HttpServlet {
 				
 		String nome = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
-		String login = "cacete";
                 
 		Usuario usuario = new Usuario();
 		usuario.setNome(nome);
