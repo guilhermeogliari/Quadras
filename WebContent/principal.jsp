@@ -105,6 +105,8 @@
                             <h3 class="panel-title">Configurações de Usuários</h3>
                         </div>
                         <div class="panel-body">
+                        	<a href="addUsuario.jsp" class="btn btn-primary">Novo</a>
+                        	
                             <table class='table table-striped table-hover' border='1'>
                                 <thead>
                                 <tr class='info'>
@@ -120,6 +122,7 @@
                                         out.println("<td>" + lista.get(f).getNome() + "</td>");
                                         out.println("<td>");
                                         out.println("<a href='editUsuario.jsp?id="+lista.get(f).getId()+"'>Editar</a>");
+                                        out.println("<a href='deleteUsuario?id="+lista.get(f).getId()+"'>Excluir</a>");
                                         out.println("</td>");
                                         out.println("</tr>");
                                     }

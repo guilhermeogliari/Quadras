@@ -1,22 +1,5 @@
-<%-- 
-    Document   : principal
-    Created on : 04/12/2015, 10:35:21
-    Author     : fcolchete
---%>
-
-<%@page import="Model.Usuario"%>
-<%@page import="Control.UsuarioController"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-
-<%
-    Usuario user = new Usuario();
-    user.setId(Integer.parseInt(request.getParameter("id")));
-    UsuarioController usuario = new UsuarioController();
-    user = usuario.localizar(user);
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -34,7 +17,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-        <title>Benvindo ao Quadras!!</title>
+        <title>Bem - vindo ao Quadras!!</title>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-static-top">
@@ -61,20 +44,19 @@
             <div class="container">
                 <div class="row">
                     <div>
-                    <h1 class ="text-center">Editar Usuário</h1>
+                    <h1 class ="text-center">Adcionar Usuário</h1>
                     </div>
-                    <form class = "form-horizontal" role = "form" id="editUsuario" name="editUsuario" action="EditarUser">
+                    <form class = "form-horizontal" role = "form" id="addUsuario" name="addUsuario" action="addUser">
                         <div class="form-group col-md-12">
                             <div class="jumbotron">
                                 <label for="nome" class="control-label">Nome</label>
-                                <input class = "form-control"  type="text" name="nome" value="<%out.println(user.getNome());%>" size="20"/>
+                                <input class = "form-control"  type="text" name="nome" size="20"/>
                                 <label for="cpf" class="control-label">CPF</label>
-                                <input class = "form-control"  type="text" name="cpf" value="<%out.println(user.getCpf());%>" size="11"/>
+                                <input class = "form-control"  type="text" name="cpf" size="11"/>
                                 <label for="idade" class="control-label">Idade</label>
-                                <input class = "form-control"  type="text" name="idade" value="<%out.println(user.getIdade());%>" size="20"/>
-                                <input class = "form-control"  type="text" style="display:none"  name="pontos" value="<%out.println(user.getPontos());%>"/>
-                                <input class = "form-control"  type="text" style="display:none"  name="id" value="<%out.println(user.getId());%>"/>
-                                <input class = "form-control"  type="text" style="display:none" name="senha" value="<%out.println(user.getSenha());%>"/>
+                                <input class = "form-control"  type="text" name="idade" size="20"/>
+                                <label for="senha" class="control-label">Senha</label>
+                                <input class = "form-control"  type="password" name="senha" size="20" />
                             </div>
                         </div>
                             <div class="form-group">
@@ -88,10 +70,6 @@
                 </div>
             </div>
         </div>
-
-        <%
-            //out.println(request.getParameter("id"));
-        %>
 
     </body>
 </html>

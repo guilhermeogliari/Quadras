@@ -50,12 +50,13 @@ public class UsuarioController extends AbstractFacade<Usuario> {
     public void criar(Usuario usuario) throws SQLException {
         conn = DBConnection.Conectar();
 
-        String sql = "INSERT INTO usuario(id,nome,cpf,idade,pontos)VALUES(s_usuario.NEXTVAL,(?),(?),(?),0)";
+        String sql = "INSERT INTO usuario(id,nome,cpf,idade,pontos,senha)VALUES(s_usuario.NEXTVAL,(?),(?),(?),0,(?))";
         PreparedStatement st = conn.prepareStatement(sql);
         st.setString(1, usuario.getNome());
         st.setLong(2, usuario.getCpf());
         st.setInt(3, usuario.getIdade());
-        st.executeQuery();
+        st.setString(4, usuario.getSenha());
+        st.execute();
 
     }
 
@@ -69,7 +70,7 @@ public class UsuarioController extends AbstractFacade<Usuario> {
         st.setLong(2, usuario.getCpf());
         st.setInt(3, usuario.getIdade());
         st.setInt(4, usuario.getId());
-        st.executeQuery();
+        st.execute();
 
     }
 
@@ -94,6 +95,7 @@ public class UsuarioController extends AbstractFacade<Usuario> {
         st.setInt(1, usuario.getId());
         ResultSet rs = st.executeQuery();
         if (rs.next()) {
+        	id = rs.getInt(1);
             nome = rs.getString(2);
             cpf = rs.getLong(3);
             idade = rs.getInt(4);
