@@ -9,7 +9,6 @@ public class DBConnection {
         Connection con = null;
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            System.out.println("Registrado!");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             System.out.println("Erro! " + e.getMessage());

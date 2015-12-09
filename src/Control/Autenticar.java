@@ -24,11 +24,12 @@ public class Autenticar extends HttpServlet {
 				
 		String nome = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
-		
+		String login = "cacete";
+                
 		Usuario usuario = new Usuario();
 		usuario.setNome(nome);
 		usuario.setSenha(senha);
-		
+
 		try {
 						
 			UsuarioController usuarioController = new UsuarioController();
@@ -39,7 +40,7 @@ public class Autenticar extends HttpServlet {
 			}
 			
 		} catch (Exception ex) {
-			System.out.println("excecao");
+			System.out.println("caindo na excecao!!!");
 			request.getSession().setAttribute("login", "null");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

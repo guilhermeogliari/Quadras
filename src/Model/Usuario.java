@@ -12,7 +12,7 @@ public class Usuario {
 		super();
 	}
 
-	Usuario(int id, String nome, int cpf, int idade, int pontos, String senha) {
+	public Usuario(int id, String nome, long cpf, int idade, int pontos, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;

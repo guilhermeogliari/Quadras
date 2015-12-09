@@ -14,7 +14,7 @@ public class UsuarioController extends AbstractFacade<Usuario>{
 
 	private Connection conn;
 	public Usuario usuario;
-	public ArrayList<Usuario> usuarios;
+	public ArrayList<Usuario> usuarios = new ArrayList();
 	
 	@Override
 	public void criar(Usuario usuario) throws SQLException {
@@ -72,7 +72,6 @@ public class UsuarioController extends AbstractFacade<Usuario>{
             usuario.setSenha(rs.getString(6));
             return usuario;
 		}
-		
 		return null;
 	}
 	
@@ -80,20 +79,28 @@ public class UsuarioController extends AbstractFacade<Usuario>{
 	public ArrayList<Usuario> consultar() throws SQLException {
 		
 		conn = DBConnection.Conectar();
-		
-		String sql = "SELECT * FROM usuario";
+		int id=0;
+                String nome = "";
+                long cpf = 0;
+                int idade = 0;
+                int pontos = 0;
+                String senha = "";
+                
+                
+                
+		String sql = "SELECT * FROM USUARIO";
 		PreparedStatement st = conn.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		while (rs.next()){
-			usuario.setId(rs.getInt(1));
-			usuario.setNome(rs.getString(2));
-			usuario.setCpf(rs.getLong(3));
-			usuario.setIdade(rs.getInt(4));
-			usuario.setPontos(rs.getInt(5));
-			usuario.setSenha(rs.getString(6));
-			usuarios.add(usuario);
+                    id = rs.getInt(1);
+                    nome = rs.getString(2);
+                    cpf = rs.getLong(3);
+                    idade = rs.getInt(4);
+                    pontos = rs.getInt(5);
+                    senha = rs.getString(6);
+                    usuario = new Usuario(id, nome, cpf, idade, pontos, senha);
+                    usuarios.add(usuario);
 		}
-		
 		return usuarios;
 	}
 	

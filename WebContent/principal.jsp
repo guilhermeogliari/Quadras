@@ -113,14 +113,15 @@
                                 </thead>
                                 <tbody>
                                 <%
-                                    ArrayList<Usuario> lista = new ArrayList();
+                                    ArrayList<Usuario> lista = new ArrayList<Usuario>();
                                     UsuarioController users = new UsuarioController();
                                     lista = users.consultar();
                                     for (int f = 0; f < lista.size(); f++) {
                                         out.println("<td>" + lista.get(f).getNome() + "</td>");
-                                        out.println("<th>");
+                                        out.println("<td>");
                                         out.println("<a href='#'>Editar</a>");
-                                        out.println("</th>");
+                                        out.println("</td>");
+                                        out.println("</tr>");
                                     }
                                 %>
                                 </tbody>
