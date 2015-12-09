@@ -119,7 +119,7 @@
                                     for (int f = 0; f < lista.size(); f++) {
                                         out.println("<td>" + lista.get(f).getNome() + "</td>");
                                         out.println("<td>");
-                                        out.println("<a href='editarUsuario.jsp?id="+lista.get(f).getId()+"'>Editar</a>");
+                                        out.println("<a href='editUsuario.jsp?id="+lista.get(f).getId()+"'>Editar</a>");
                                         out.println("</td>");
                                         out.println("</tr>");
                                     }

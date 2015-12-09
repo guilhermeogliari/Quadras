@@ -11,7 +11,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>EditarUsuario</servlet-name>
-        <servlet-class>Control.EditarUsuario</servlet-class>
+        <servlet-class>Control.EditarUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditarUsuario</servlet-name>

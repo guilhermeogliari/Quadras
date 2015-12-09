@@ -63,7 +63,7 @@
                     <div>
                     <h1 class ="text-center">Editar Usuário</h1>
                     </div>
-                    <form class = "form-horizontal" role = "form" id="editUsuario" name="editUsuario" action="EditarUsuario">
+                    <form class = "form-horizontal" role = "form" id="editUsuario" name="editUsuario" action="EditarUser">
                         <div class="form-group col-md-12">
                             <div class="jumbotron">
                                 <label for="Nome" class="control-label">Nome</label>

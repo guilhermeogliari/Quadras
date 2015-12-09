@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fcolchete
  */
-@WebServlet("/EditarUsuario")
-public class EditarUsuario extends HttpServlet {
+@WebServlet("/EditarUser")
+public class EditarUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,20 +46,8 @@ public class EditarUsuario extends HttpServlet {
 @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-                String nome = request.getParameter("usuario");
+            
+            String nome = request.getParameter("usuario");
         String senha = request.getParameter("senha");
         int id = Integer.parseInt(request.getParameter("id"));
         long cpf = Long.parseLong(request.getParameter("cpf"));
@@ -81,6 +69,21 @@ public class EditarUsuario extends HttpServlet {
             request.getSession().setAttribute("login", "null");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+            
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+                
     }
 
     /**
