@@ -49,6 +49,10 @@
             </div>
         </div>
     <body>
-        <h1>Hello World!</h1>
+        <h1>
+			<%
+				out.println(request.getAttribute("id"));
+			%>
+		</h1>
     </body>
 </html>
